@@ -83,7 +83,8 @@ export class FieldModel {
 
     this.schema = new SchemaModel(parser, fieldSchema || {}, pointer, options, false, refsStack);
     this.description =
-      info.description === undefined ? this.schema.description || '' : info.description;
+      (infoOrRef as OpenAPIParameter)?.schema?.description ||
+      (info.description === undefined ? this.schema.description || '' : info.description);
     this.example = info.example || this.schema.example;
 
     if (info.examples !== undefined || this.schema.examples !== undefined) {

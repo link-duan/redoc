@@ -983,8 +983,7 @@ components:
       properties:
         id:
           description: Order ID
-          allOf:
-            - $ref: '#/components/schemas/Id'
+          $ref: '#/components/schemas/Id'
         petId:
           description: Pet ID
           allOf:
